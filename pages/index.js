@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link'
 import { Button, Heading, Image, Text } from "@chakra-ui/react";
 import layout from '../images/sglayout.jpeg'
 import { useState, useEffect } from 'react';
@@ -25,7 +26,7 @@ export default function Home() {
       textShadow="2px 2px black"
       transform="translate(-50%, -50%)"
       >Studio Ghibli</Heading>
-
+      <Link href="/movies">
       <Button 
       color="white"
       mt="20px"
@@ -42,6 +43,7 @@ export default function Home() {
       backgroundColor:"white", 
       color:"grey"}}
       >Find Movies</Button>
+      </Link>
 
     </>
   )

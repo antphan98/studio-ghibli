@@ -1,9 +1,21 @@
+@font-face {
+  font-family: Ghibli-Bold;
+  src: url(../public/fonts/Ghibli-Bold.otf) format('opentype');
+}
+@font-face {
+  font-family: Ghibli;
+  src: url(../public/fonts/Ghibli.otf) format('opentype');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Ghibli;
+}
+
+h1 {
+  font-family: Ghibli-Bold;
 }
 
 a {

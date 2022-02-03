@@ -1,40 +1,48 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { Button, Heading, Image, Text } from "@chakra-ui/react";
+import layout from '../images/sglayout.jpeg'
 import { useState, useEffect } from 'react';
 const _ = require("lodash");
 
 export default function Home() {
-  const [ movies, setMovies ] = useState(null);
-  const [ isLoading, setLoading ] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(`https://ghibliapi.herokuapp.com/films`)
-    .then((res) => res.json())
-    .then((data) => {
-      setMovies(data);
-      setLoading(false);
-    });
-  }, [])
-
-  if (isLoading) return <h1>Loading...</h1>
-  if (!movies) return <h1>No movies found</h1>
-
-  const orderedMovies = _.orderBy(movies, ['title'], ['asc']);
-
-  console.log(orderedMovies);
 
   return (
-    <div>
-      <Head>
-      </Head>
+    <>
+      <Image 
+      src={layout.src}
+      width="100vw"
+      height="100vh"
+      display="block"
+      position="relative" />
 
-      {orderedMovies.map((movie) => (
-        <div className="movie" key={movie.id}>
-          <img src={movie.image} width="100" />
-          <h2>{movie.title}</h2>
-        </div>
-      ))}
+      <Heading 
+      fontFamily="Ghibli-Bold"
+      position="absolute"
+      color="white"
+      fontSize="7rem"
+      top="20%"
+      left="50%"
+      textShadow="2px 2px black"
+      transform="translate(-50%, -50%)"
+      >Studio Ghibli</Heading>
 
-    </div>
+      <Button 
+      color="white"
+      mt="20px"
+      p="30px"
+      position="absolute"
+      fontFamily="Ghibli"
+      fontSize="2rem"
+      top="30%"
+      left="50%"
+      transform="translate(-50%, -50%)"
+      variant="outline"
+      transition="0.5s"
+      _hover={{ 
+      backgroundColor:"white", 
+      color:"grey"}}
+      >Find Movies</Button>
+
+    </>
   )
 }

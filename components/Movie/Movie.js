@@ -1,4 +1,4 @@
-import { Image, SimpleGrid, Container, Text } from "@chakra-ui/react";
+import { Image, SimpleGrid, Container, VStack, Text, Center, Box } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 const _ = require("lodash");
 
@@ -25,11 +25,19 @@ export default function Movie() {
         <Container maxW="container.xl">
             <SimpleGrid columns={3} spacing={10} p="100px">
                 {orderedMovies.map((movie) => (
-                    <div className="movie" key={movie.id}>
+                    <Box
+                        transition="all .2s ease-in-out"
+                        cursor="pointer"
+                        _hover={{ transform: "scale(1.1)" }}
+                        key={movie.id}>
                         <Image width="300px" src={movie.image} />
-                        <h2>{movie.title}</h2>
-                        <p>{movie.release_date}</p>
-                    </div>
+                        <VStack>
+                            <Center>
+                                <Text fontSize="3xl">{movie.title}</Text>
+                            </Center>
+                            <Text>{movie.release_date}</Text>
+                        </VStack>
+                    </Box>
                 ))}
             </SimpleGrid>
         </Container>

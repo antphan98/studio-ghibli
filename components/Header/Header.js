@@ -1,4 +1,4 @@
-import { Image, Menu, MenuButton, Divider, Text, Center, Container, HStack } from "@chakra-ui/react";
+import { Image, Menu, MenuButton, Divider, Text, Center, Container, Link } from "@chakra-ui/react";
 import logo from "../../images/studioghiblilogo.png";
 
 export default function Header() {
@@ -14,11 +14,15 @@ export default function Header() {
             </Center>
             <Center>
                 <Menu>
-                    <MenuButton m={2} fontSize="2xl">About</MenuButton>
+                    <Link href="/about">
+                        <MenuButton m={3} fontSize="2xl">About</MenuButton>
+                    </Link>
                     <Center height="30px">
-                        <Divider orientation='vertical' />
+                        <Divider orientation="vertical" borderColor="black" />
                     </Center>
-                    <MenuButton m={2} fontSize="2xl">Movies</MenuButton>
+                    <Link href="/movies">
+                        <MenuButton m={3} fontSize="2xl">Movies</MenuButton>
+                    </Link>
                 </Menu>
             </Center>
         </Container >
